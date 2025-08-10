@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PaintableResources_Main" load_steps=3 format=3 uid="uid://dkgqta7ucaon2"]
+
+[ext_resource type="Texture2D" uid="uid://dduh0c65r8nu4" path="res://Assets/IndividualTile/Layer3.png" id="1_w21tj"]
+[ext_resource type="Script" path="res://Scripts/Ressources/PaintableResource_Main.gd" id="2_fk54a"]
+
+[resource]
+script = ExtResource("2_fk54a")
+image = ExtResource("1_w21tj")
+AtlasCoordinate = Vector2i(2, 0)
