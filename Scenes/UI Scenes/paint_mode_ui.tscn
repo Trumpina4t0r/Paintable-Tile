@@ -1,0 +1,188 @@
+[gd_scene load_steps=21 format=3 uid="uid://dt73poq2s6ch"]
+
+[ext_resource type="Script" path="res://Scripts/MainPaintingScripts/PaintMode_UI.gd" id="1_lqwtl"]
+[ext_resource type="Script" path="res://Scripts/Ressources/PaintableResource_Main.gd" id="2_wmk2b"]
+[ext_resource type="Resource" uid="uid://ctyljbru6wpoh" path="res://Scripts/Ressources/ResourceFile/ResourceGrass.tres" id="3_fwpff"]
+[ext_resource type="Resource" uid="uid://dr03481jowelk" path="res://Scripts/Ressources/ResourceFile/ResourceDirt.tres" id="4_1eycf"]
+[ext_resource type="Resource" uid="uid://dkgqta7ucaon2" path="res://Scripts/Ressources/ResourceFile/ResourceSand.tres" id="5_sedua"]
+[ext_resource type="Resource" uid="uid://bus4t7xu4vt87" path="res://Scripts/Ressources/ResourceFile/ResourceWater.tres" id="6_cshdm"]
+[ext_resource type="Resource" uid="uid://d134y8yno78wl" path="res://Scripts/Ressources/ResourceFile/Resource_04.tres" id="7_k4hj1"]
+[ext_resource type="Resource" uid="uid://okuhjiul4yav" path="res://Scripts/Ressources/ResourceFile/Resource_05.tres" id="8_1kq36"]
+[ext_resource type="Resource" uid="uid://cayxtvjwk3dp4" path="res://Scripts/Ressources/ResourceFile/Resource_06.tres" id="9_6dp5t"]
+[ext_resource type="Resource" uid="uid://dww470m8pu5s" path="res://Scripts/Ressources/ResourceFile/Resource_07.tres" id="10_vveti"]
+[ext_resource type="Theme" uid="uid://p6iaa755365l" path="res://Theme/BTNTheme.tres" id="11_llddl"]
+[ext_resource type="Texture2D" uid="uid://bfokvela6cuc6" path="res://Assets/Debug/DebugGrid_01.png" id="12_dlfc8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2upvh"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.438239, 0.318334, 0.00636674, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.41598, 0.41598, 0.41598, 1)
+
+[sub_resource type="Theme" id="Theme_1aixl"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_2upvh")
+
+[sub_resource type="Theme" id="Theme_dc0k0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oaaqh"]
+texture = ExtResource("12_dlfc8")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 8.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="Theme" id="Theme_s8onx"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_oaaqh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d6wjr"]
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="Theme" id="Theme_hes8f"]
+ScrollContainer/styles/panel = SubResource("StyleBoxTexture_d6wjr")
+
+[sub_resource type="Theme" id="Theme_v7osl"]
+Button/font_sizes/font_size = 22
+
+[node name="PaintModeUI" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -216.0
+offset_top = -303.0
+offset_right = -216.0
+offset_bottom = -303.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_lqwtl")
+resources = Array[ExtResource("2_wmk2b")]([ExtResource("3_fwpff"), ExtResource("4_1eycf"), ExtResource("5_sedua"), ExtResource("6_cshdm"), ExtResource("7_k4hj1"), ExtResource("8_1kq36"), ExtResource("9_6dp5t"), ExtResource("10_vveti")])
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_top = -252.0
+offset_right = 150.0
+offset_bottom = 148.0
+theme = SubResource("Theme_1aixl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme = ExtResource("11_llddl")
+text = "Paint"
+
+[node name="Button2" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme = ExtResource("11_llddl")
+text = "Erase"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="BrushSizeLabel" type="Label" parent="Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Brush Size: 10x10"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dc0k0")
+min_value = 1.0
+max_value = 10.0
+value = 10.0
+
+[node name="Button3" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme = ExtResource("11_llddl")
+text = "Material"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="MaterialSelectorUI" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -305.0
+offset_top = -16.0
+offset_right = -305.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Panel" type="PanelContainer" parent="MaterialSelectorUI"]
+clip_contents = true
+layout_mode = 0
+offset_left = -223.0
+offset_top = -123.0
+offset_right = 77.0
+offset_bottom = 42.0
+scale = Vector2(1.74, 1.74)
+theme = SubResource("Theme_s8onx")
+
+[node name="VScrollBar" type="ScrollContainer" parent="MaterialSelectorUI/Panel"]
+clip_contents = false
+layout_mode = 2
+theme = SubResource("Theme_hes8f")
+
+[node name="GridContainer" type="GridContainer" parent="MaterialSelectorUI/Panel/VScrollBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 6
+
+[node name="BTN_Close" type="Button" parent="MaterialSelectorUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 197.0
+offset_top = -166.0
+offset_right = 297.0
+offset_bottom = -127.0
+grow_horizontal = 0
+focus_mode = 0
+theme = SubResource("Theme_v7osl")
+text = "Close"
+
+[node name="PaintMode_Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = -277.0
+offset_right = 164.0
+offset_bottom = -254.0
+text = "Painting
+"
+horizontal_alignment = 1
+
+[connection signal="button_up" from="Panel/VBoxContainer/Button" to="." method="onPaintBTNClicked"]
+[connection signal="button_up" from="Panel/VBoxContainer/Button2" to="." method="onEraseBTNClicked"]
+[connection signal="value_changed" from="Panel/VBoxContainer/VBoxContainer/HSlider" to="." method="onBrushSizeChanged"]
+[connection signal="button_up" from="Panel/VBoxContainer/Button3" to="." method="onMaterialBTN_Clciked"]
+[connection signal="button_up" from="MaterialSelectorUI/BTN_Close" to="." method="onCloseBTN_Clicked"]

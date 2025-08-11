@@ -1,6 +1,6 @@
 extends Node2D
 
-
+#you dont need this script in your project only use to move around in this project
 
 @export var SPEED = 300.0
 @onready var root = get_parent()
